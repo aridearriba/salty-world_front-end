@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="h-100">
+<html lang="es" class="h-100">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,40 +7,114 @@
             integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" 
             integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+        <link rel="stylesheet" href="./css/index.css">
         <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-        <script src="index.js"></script>
+        <script src="./js/index.js"></script>
         <title>Salty world</title>
-        <style>
-            .root-main {
-                flex: 100;
-            }
-            .main-header {
-                flex: 5;
-            }
-            .main-footer {
-                flex: 2;
-            }
-        </style>
     </head>
-    <body class="h-100 m-0 row flex-column">
-        <header class="main-header navbar navbar-light bg-secondary shadow">
-            <nav class="container-fluid justify-content-center">
-                <a class="navbar-brand text-light" href="#">Salty world</a>
+    <body class="d-flex flex-column min-vh-100">
+        <header class="main-header">
+            <nav class="navbar navbar-expand-md fixed-top bg-secondary shadow">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="./index.html">
+                        <img class="img-responsive" src="./img/logo-salty-world.png" alt="Salty world" width="100rem">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarCollapse">
+                        <ul class="navbar-nav me-auto mb-2 mb-md-0 text-light">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="./pages/about.html">Acerca</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./pages/salt-types.html">Tipos de sal</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./pages/recipes.html">Recetas</a>
+                            </li>
+                        </ul>
+                        <div class="d-flex">
+                            <a class="nav-link p-0" href="./pages/login.html">
+                                <i class="fas fa-user pe-2"></i>
+                                Iniciar sesión
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </nav>
         </header>
 
-        <main class="col-12 root-main row p-0 m-0 d-flex flex-column justify-content-center align-items-center">
-            <div class="row">
-                <div class="container col-8">
+        <main class="root-main col-12 row h-100 w-100 p-0 m-0 d-flex justify-content-center align-items-center">
+            <div id="carouselCities" class="carousel slide w-100 p-0" data-bs-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-bs-target="#carouselCities" data-bs-slide-to="0" class="active"></li>
+                    <li data-bs-target="#carouselCities" data-bs-slide-to="1"></li>
+                    <li data-bs-target="#carouselCities" data-bs-slide-to="2"></li>
+                </ol>
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img class="img-fluid d-block w-100" src="./img/carousel-about.jpg" alt="About">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Conoce Salty World</h5>  
+                            <small>Photo by <a href="https://unsplash.com/@disguise_truth?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Anastasia Zhenina</a> on <a href="https://unsplash.com/s/photos/pink-salt-food?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></small>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="./img/carousel-salt-types.png" alt="Salt types">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Tipos de sal</h5>  
+                            <p>Múltiples variedades a elegir<p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="./img/carousel-salt-recipes.webp" alt="Recipes">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Recetas</h5>  
+                            <p>Cambia el sabor de tus platos<p>
+                        </div>
+                    </div>
                 </div>
+                <!-- Left and right controls -->
+                <a class="carousel-control-prev" href="#carouselCities" role="button" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselCities" role="button" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </a>
             </div>
-            <div class="row">
-            </div>
+
+            <!-- Three columns of text below the carousel -->
+            <div class="main-cols row h-75 w-100 align-items-center py-3">
+                <div class="col-sm-4 text-center">
+                    <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+                    <h2>Heading</h2>
+                    <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
+                    <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+                </div>
+                <div class="col-sm-4 text-center">
+                    <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+                    <h2>Heading</h2>
+                    <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
+                    <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+                </div>
+                <div class="col-sm-4 text-center">
+                    <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+                    <h2>Heading</h2>
+                    <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+                    <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+                </div>
+            </div><!-- /.row -->
         </main>
 
-        <footer class="main-footer col-12 d-flex navbar navbar-light bg-secondary shadow justify-content-center">
-            APIs
+        <footer class="main-footer mt-auto py-3 bg-secondary shadow">
+            <div class="container justify-content-center">
+                <span class="text-dark"> © 2020 Salty world</span>
+            </div>
         </footer>
         
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" 
