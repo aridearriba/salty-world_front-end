@@ -1,0 +1,31 @@
+.root-main 
+{
+    flex: 100;
+}
+.main-header 
+{
+    flex: 5;
+}
+.main-footer 
+{
+    flex: 2;
+}
+
+a
+{
+    color: gray;
+}
+a:hover 
+{
+    color: lightgray;
+}
+
+.nav-link
+{
+    color: black;
+}
+.carousel-item
+{
+    width: 100;
+    height: 75vh;
+}
