@@ -27,14 +27,13 @@ var submitForm = async (e) =>
     // Validate form 
     if (!validateForm()) return;
 
-    let user = (await findUserByEmail($('#inputEmail').val()));
-
+    let user = (await findUserByEmail($('#inputEmail').val()))[0];
+    
     // Create user if does not exist
-    if(user.length) 
+    if(user) 
     {
-        if (validatePassword(user[0].password, $('#inputPassword').val()))
-            //showAlertMessage("Sessión iniciada", false);
-            saveToLocalStorage(user[0].email, user[0].password);
+        if (validatePassword(user.password, $('#inputPassword').val()))
+            loginUser(user);
         else 
             showAlertMessage("Contraseña incorrecta.", true);
     }
@@ -79,13 +78,14 @@ var showAlertMessage = (msg, error) =>
     else        $('.form-group:nth-child(3)').before(`<div class="alert alert-success p-2 my-2" role="alert">${msg}</div>`);
 }
 
-
-var saveToLocalStorage = (email, password) =>
+// Log in user to local storage
+var loginUser = (user) =>
 {
-    localStorage.setItem('email', email);
+    localStorage.setItem('user', JSON.stringify(user));
+    window.location.replace("../pages/profile.html");
 }
 
 var getLoggedUser = () =>
 {
-    return localStorage.getItem('email');
+    return JSON.parse(localStorage.getItem('user'));
 }
