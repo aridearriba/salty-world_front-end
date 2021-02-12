@@ -66,7 +66,8 @@ var findUserByEmail = async (email) =>
 // Validate passwords
 var validatePassword = (correctPassword, inputPassword) => 
 {
-    return correctPassword === inputPassword;
+    let encryptedPassword = CryptoJS.SHA256(inputPassword);
+    return correctPassword === encryptedPassword.toString();
 }
 
 // Show alert message

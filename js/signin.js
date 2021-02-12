@@ -72,11 +72,13 @@ var findUserByEmail = async (email) =>
 // Create new user
 var createUser = async (e) => 
 {
+    let encryptedPassword = CryptoJS.SHA256($('#inputPassword').val());
+
     // Get user fields
     let user = 
     {
         email: $('#inputEmail').val(),
-        password: $('#inputPassword').val(),
+        password: encryptedPassword.toString(),
         name: $('#inputName').val(),
         surname: $('#inputSurname').val()
     };
