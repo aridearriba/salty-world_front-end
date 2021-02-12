@@ -1,20 +1,6 @@
 // Global variables
 var url = 'https://saltyworld.herokuapp.com/users';
 
-// Create new user
-var findUserByEmail = async (email) => 
-{
-    try 
-    {    
-        response = await axios.get(`${url}?email=${email}`);
-        return response.data;
-    } catch (error) 
-    {
-        console.log(error);
-    }
-}
-
-
 // Submit form
 var submitForm = async (e) => 
 {
@@ -41,12 +27,6 @@ var submitForm = async (e) =>
         showAlertMessage("Este email no está registrado.", true);
 }
 
-// Validate passwords
-var validatePassword = (correctPassword, inputPassword) => 
-{
-    return correctPassword === inputPassword;
-}
-
 // Validate form fields
 var validateForm = () => 
 {
@@ -70,6 +50,24 @@ var validateForm = () =>
     return validForm;
 }
 
+// Find user in JSON server by its email (primary key)
+var findUserByEmail = async (email) => 
+{
+    try 
+    {    
+        response = await axios.get(`${url}?email=${email}`);
+        return response.data;
+    } catch (error) 
+    {
+        console.log(error);
+    }
+}
+
+// Validate passwords
+var validatePassword = (correctPassword, inputPassword) => 
+{
+    return correctPassword === inputPassword;
+}
 
 // Show alert message
 var showAlertMessage = (msg, error) =>
@@ -83,9 +81,4 @@ var loginUser = (user) =>
 {
     localStorage.setItem('user', JSON.stringify(user));
     window.location.replace("../pages/profile.html");
-}
-
-var getLoggedUser = () =>
-{
-    return JSON.parse(localStorage.getItem('user'));
 }

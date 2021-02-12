@@ -1,4 +1,4 @@
-// View user info on load page
+// Load log in custom button in navbar
 $(window).on("load", () => 
 {
     let user = getLoggedUser();
@@ -14,6 +14,7 @@ $(window).on("load", () =>
         </a>`);
 });
 
+// Get logged user from local storage
 var getLoggedUser = ()  =>
 {
     return JSON.parse(localStorage.getItem('user'));

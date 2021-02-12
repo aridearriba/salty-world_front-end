@@ -1,21 +1,6 @@
 // Global variables
 var url = 'https://saltyworld.herokuapp.com/users';
 
-// Create new user
-var findUserByEmail = async (email) => 
-{
-    try 
-    {    
-        response = await axios.get(`${url}?email=${email}`);
-        console.log(response);
-        return response.data.length;
-    } catch (error) 
-    {
-        console.log(error);
-    }
-}
-
-
 // Submit form
 var submitForm = async (e) => 
 {
@@ -71,6 +56,19 @@ var validateForm = () =>
     return validForm;
 }
 
+// Find user in JSON server by its email (primary key)
+var findUserByEmail = async (email) => 
+{
+    try 
+    {    
+        response = await axios.get(`${url}?email=${email}`);
+        return response.data.length;
+    } catch (error) 
+    {
+        console.log(error);
+    }
+}
+
 // Create new user
 var createUser = async (e) => 
 {
@@ -96,10 +94,7 @@ var createUser = async (e) =>
     // Info message
     if (response.status === 201) showAlertMessage("Usuario registrado con éxito", false);
     else                         showAlertMessage("No se ha podido registrar el usuario", true);
-    
-   
 }
-
 
 // Show alert message
 var showAlertMessage = (msg, error) =>
