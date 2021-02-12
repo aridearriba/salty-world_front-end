@@ -11,10 +11,6 @@
     flex: 2;
 }
 
-a
-{
-    color: white;
-}
 a:hover 
 {
     color: lightgray;
