@@ -1,8 +1,7 @@
 // View user info on load page
 $(window).on("load", () => 
 {
-    user = getLoggedUser();
-    console.log(user);
+    let user = getLoggedUser();
     if (user)
         $("#loginButton").html(`<a id="loginButton" class="nav-link p-0" href="../pages/profile.html">
                                     <i class="fas fa-user pe-2"></i>
@@ -15,7 +14,7 @@ $(window).on("load", () =>
         </a>`);
 });
 
-var getLoggedUser = () =>
+var getLoggedUser = ()  =>
 {
     return JSON.parse(localStorage.getItem('user'));
 }
